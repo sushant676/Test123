@@ -6,18 +6,16 @@ on:
       - main
 
 jobs:
-  deploy:
-    runs-on: self-hosted
+  build:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Show Current Directory
-        run: pwd
+      - name: Check Python
+        run: python3 --version
 
-      - name: Show Files
-        run: ls -la
-
-      - name: Success Message
-        run: echo "CI/CD Pipeline Working Successfully"
+      - name: Run Python File
+        run: |
+          python3 app.py"
